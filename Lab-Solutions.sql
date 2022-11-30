@@ -55,9 +55,10 @@ HAVING AVG(length) > 120;
 
 SELECT title, length,
 CASE
-WHEN WEEKDAY(length) BETWEEN 1 AND 60 THEN 'Short'
-WHEN WEEKDAY(length) BETWEEN 61 AND 120 THEN 'Medium'
+WHEN length BETWEEN 1 AND 60 THEN 'Short'
+WHEN length BETWEEN 61 AND 120 THEN 'Medium'
 ELSE 'Long'
 END AS length_rating
 FROM film
-WHERE length IS NOT NULL;
+WHERE length IS NOT NULL
+ORDER BY length;
